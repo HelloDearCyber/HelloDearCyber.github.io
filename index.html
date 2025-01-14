@@ -7,21 +7,18 @@
     <title>Movie Showcase</title>
 
     <meta name="title" content="Movie Showcase">
-    <meta name="description"
-        content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
+    <meta name="description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourwebsite.com/">
     <meta property="og:title" content="Movie Showcase">
-    <meta property="og:description"
-        content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
+    <meta property="og:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
     <meta property="og:image" content="https://yourwebsite.com/path/to/image.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://yourwebsite.com/">
     <meta property="twitter:title" content="Movie Showcase">
-    <meta property="twitter:description"
-        content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
+    <meta property="twitter:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
     <meta property="twitter:image" content="https://yourwebsite.com/path/to/image.jpg">
 
     <meta name="author" content="Your Name">
@@ -47,13 +44,23 @@
 
         .rating {
             display: flex;
-            align-items: center;
+            align-items: center;  /* Ensures vertical alignment of the icon and text */
+            gap: 0.25rem;  /* Optional: Adds some space between the star and the text */
         }
 
         .star-icon {
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1rem;  /* Adjusted the size of the star to 1rem */
+            width: 1rem;   /* Adjusted the size of the star to 1rem */
             color: #FBBF24; /* yellow-500 */
+        }
+
+        #movie-rating {
+            font-size: 1rem;  /* Ensures the rating number size is consistent with the star size */
+            line-height: 1rem;  /* Aligns the number vertically with the star */
+        }
+
+        .overview-label {
+            font-weight: bold;  /* Makes the label text bold */
         }
     </style>
 </head>
@@ -90,15 +97,21 @@
                 </div>
                 <div id="movie-info" class="w-full md:w-2/3 flex flex-col justify-center space-y-4">
                     <h1 id="movie-title" class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600"></h1>
-                    <p id="movie-overview"
-                        class="text-sm md:text-base lg:text-lg text-gray-300 line-clamp-4 md:line-clamp-none"></p>
+                    
+                    <!-- Overview section with label -->
+                    <div class="text-gray-300">
+                        <span class="overview-label">Overview:</span>
+                        <span id="movie-overview-text">None</span>
+                    </div>
+
                     <div class="flex flex-wrap gap-4 text-sm md:text-base">
                         <div class="rating">
                             <!-- Full Star SVG Icon for Rating -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="star-icon mr-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10 15.27L16.18 19l-1.64-7.03L19 8.24l-7.19-.61L10 1 8.19 7.63 1 8.24l4.46 3.73L3.82 19z"/>
                             </svg>
-                            <span id="movie-rating"></span>
+                            <span class="rating-label">Rating:</span>
+                            <span id="movie-rating">None</span>
                         </div>
                     </div>
                     <div id="movie-category" class="text-gray-400"></div>
@@ -177,7 +190,7 @@
 
                 const movie_container = document.getElementById('movie-container');
                 const movie_title = document.getElementById('movie-title');
-                const movie_overview = document.getElementById('movie-overview');
+                const movie_overview_text = document.getElementById('movie-overview-text');
                 const movie_rating = document.getElementById('movie-rating');
                 const movie_release_date = document.getElementById('movie-release-date');
                 const movie_category = document.getElementById('movie-category');
@@ -192,8 +205,13 @@
                 poster.src = `https://image.tmdb.org/t/p/w1280/${movie.poster_path}`;
                 movie_container.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`;
                 movie_title.textContent = movie.title;
-                movie_overview.textContent = movie.overview;
-                movie_rating.textContent = `Rating: ${movie.vote_average.toFixed(1)}`;
+
+                // Set overview text, default to 'None' if not available
+                movie_overview_text.textContent = movie.overview || 'None';
+
+                // Set rating, default to 'None' if not available
+                movie_rating.textContent = movie.vote_average ? movie.vote_average.toFixed(1) : 'None';
+
                 movie_release_date.textContent = `Release Date: ${new Date(movie.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
 
                 movie_category.textContent = `Category: ${movie.media_type === 'movie' ? 'Movie' : 'TV Series'}`;
