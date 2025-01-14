@@ -44,6 +44,17 @@
         * {
             font-family: 'Josefin Sans', sans-serif;
         }
+
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-icon {
+            height: 1.5rem;
+            width: 1.5rem;
+            color: #FBBF24; /* yellow-500 */
+        }
     </style>
 </head>
 
@@ -82,12 +93,10 @@
                     <p id="movie-overview"
                         class="text-sm md:text-base lg:text-lg text-gray-300 line-clamp-4 md:line-clamp-none"></p>
                     <div class="flex flex-wrap gap-4 text-sm md:text-base">
-                        <div class="flex items-center">
-                            <!-- Single Star SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500 mr-1"
-                                viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M10 15.27L16.18 19l-1.64-7.03L18 8.24l-7.19-.61L10 1 9.19 7.63 2 8.24l5.46 3.73L3.82 19z" />
+                        <div class="rating">
+                            <!-- Full Star SVG Icon for Rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="star-icon mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 15.27L16.18 19l-1.64-7.03L19 8.24l-7.19-.61L10 1 8.19 7.63 1 8.24l4.46 3.73L3.82 19z"/>
                             </svg>
                             <span id="movie-rating"></span>
                         </div>
@@ -161,7 +170,7 @@
             try {
                 const apiKey = '6abcb6bb99fb77f33c37016a28866ed2';
                 const genres = ['/movie/popular', '/trending/movie/day', '/movie/now_playing']
-                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`;
+                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`; 
                 let response = await fetch(url)
                 let data = await response.json()
                 let movie = data.results[Math.floor(Math.random() * data.results.length)];
@@ -176,7 +185,6 @@
                 const poster = document.getElementById('poster');
 
                 poster.onload = function () {
-                    // Hide loader, show movie container once poster is loaded
                     document.getElementById('loader').classList.add('hidden');
                     document.getElementById('movie-container').classList.remove('hidden');
                 };
@@ -188,11 +196,9 @@
                 movie_rating.textContent = `Rating: ${movie.vote_average.toFixed(1)}`;
                 movie_release_date.textContent = `Release Date: ${new Date(movie.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
 
-                // Category: Movie or TV Series
                 movie_category.textContent = `Category: ${movie.media_type === 'movie' ? 'Movie' : 'TV Series'}`;
 
-                // Genre
-                let genreNames = movie.genre_ids.map(id => genreList[id] || 'Undefined').join(', ');
+                let genreNames = movie.genre_ids.length ? movie.genre_ids.map(id => genreList[id] || 'Undefined').join(', ') : 'Undefined';
                 movie_genre.textContent = `Genre: ${genreNames}`;
 
             } catch (error) {
@@ -202,7 +208,6 @@
             }
         }
 
-        // Automatically call the movie function when the page loads
         window.onload = get_movie;
     </script>
 </body>
