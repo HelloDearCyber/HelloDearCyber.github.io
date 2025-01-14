@@ -138,34 +138,46 @@
 
             try {
                 const apiKey = '6abcb6bb99fb77f33c37016a28866ed2';
-                const genres = ['/movie/popular', '/trending/movie/day', '/movie/now_playing']
-                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`
-                let response = await fetch(url)
-                let data = await response.json()
-                let movie = data.results[Math.floor(Math.random() * data.results.length)]
+    const genres = ['/movie/popular', '/trending/movie/day', '/movie/now_playing'];
+    const url = https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hi-US&page=${Math.floor(1 + Math.random() * 100)};
+    
+    let response = await fetch(url);
+    let data = await response.json();
+    let movie = data.results[Math.floor(Math.random() * data.results.length)];
 
+    const movie_container = document.getElementById('movie-container');
+    const movie_title = document.getElementById('movie-title');
+    const movie_overview = document.getElementById('movie-overview');
+    const movie_rating = document.getElementById('movie-rating');
+    const movie_release_date = document.getElementById('movie-release-date');
+    const movie_genre = document.getElementById('movie-genre'); // New element for genre
+    const movie_release_status = document.getElementById('movie-release-status'); // New element for release status
+    const poster = document.getElementById('poster');
 
-                const movie_container = document.getElementById('movie-container');
-                const movie_title = document.getElementById('movie-title');
-                const movie_overview = document.getElementById('movie-overview');
-                const movie_rating = document.getElementById('movie-rating');
-                const movie_release_date = document.getElementById('movie-release-date');
-                const poster = document.getElementById('poster');
+    poster.onload = function () {
+        // Hide loader, show movie container once poster is loaded
+        document.getElementById('loader').classList.add('hidden');
+        document.getElementById('movie-container').classList.remove('hidden');
+    };
 
+    poster.src = https://image.tmdb.org/t/p/w1280/${movie.poster_path};
+    movie_container.style.backgroundImage = url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path});
+    movie_title.textContent = movie.title;
+    movie_overview.textContent = movie.overview;
+    movie_rating.textContent = movie.vote_average.toFixed(1);
+    movie_release_date.textContent = new Date(movie.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    poster.alt = ${movie.title} Poster;
 
-                poster.onload = function () {
-                    // Hide loader, show movie container once poster is loaded
-                    document.getElementById('loader').classList.add('hidden');
-                    document.getElementById('movie-container').classList.remove('hidden');
-                };
+    // Extract and display genre information
+    if (movie.genres && movie.genres.length > 0) {
+        movie_genre.textContent = movie.genres.map(genre => genre.name).join(', ');
+    } else {
+        movie_genre.textContent = 'N/A';
+    }
 
-                poster.src = `https://image.tmdb.org/t/p/w1280/${movie.poster_path}`
-                movie_container.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`;
-                movie_title.textContent = movie.title;
-                movie_overview.textContent = movie.overview;
-                movie_rating.textContent = movie.vote_average.toFixed(1);
-                movie_release_date.textContent = new Date(movie.release_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                poster.alt = `${movie.title} Poster`;
+    // Determine and display release status
+    const isReleased = new Date(movie.release_date) <= new Date();
+    movie_release_status.textContent = isReleased ? 'Released' : 'Upcoming';
             } catch (error) {
                 console.error('Error fetching movie:', error);
                 document.getElementById('loader').classList.add('hidden');
