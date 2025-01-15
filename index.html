@@ -10,16 +10,18 @@
     <meta name="description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:url" content="https://hellodearcyber.github.io/">
     <meta property="og:title" content="Movie Showcase">
     <meta property="og:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
+    <!-- Make sure the image is publicly accessible -->
     <meta property="og:image" content="https://i.postimg.cc/Px4DPrRv/bot.png">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yourwebsite.com/">
+    <meta property="twitter:url" content="https://hellodearcyber.github.io/">
     <meta property="twitter:title" content="Movie Showcase">
     <meta property="twitter:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
-    <meta property="twitter:image" content="https://yourwebsite.com/path/to/image.jpg">
+    <!-- Make sure the image is publicly accessible -->
+    <meta property="twitter:image" content="https://i.postimg.cc/Px4DPrRv/bot.png">
 
     <meta name="author" content="Your Name">
     <meta name="keywords" content="movies, movie showcase, latest movies, trending movies, movie releases">
@@ -45,23 +47,23 @@
 
         .rating {
             display: flex;
-            align-items: center;  /* Ensures vertical alignment of the icon and text */
-            gap: 0.25rem;  /* Optional: Adds some space between the star and the text */
+            align-items: center; /* Ensures vertical alignment of the icon and text */
+            gap: 0.25rem; /* Optional: Adds some space between the star and the text */
         }
 
         .star-icon {
-            height: 1rem;  /* Adjusted the size of the star to 1rem */
-            width: 1rem;   /* Adjusted the size of the star to 1rem */
+            height: 1rem; /* Adjusted the size of the star to 1rem */
+            width: 1rem; /* Adjusted the size of the star to 1rem */
             color: #FBBF24; /* yellow-500 */
         }
 
         #movie-rating {
-            font-size: 1rem;  /* Ensures the rating number size is consistent with the star size */
-            line-height: 1rem;  /* Aligns the number vertically with the star */
+            font-size: 1rem; /* Ensures the rating number size is consistent with the star size */
+            line-height: 1rem; /* Aligns the number vertically with the star */
         }
 
         .overview-label {
-            font-weight: bold;  /* Makes the label text bold */
+            font-weight: bold; /* Makes the label text bold */
         }
     </style>
 </head>
@@ -185,7 +187,7 @@
             try {
                 const apiKey = '6abcb6bb99fb77f33c37016a28866ed2';
                 const genres = ['/movie/popular', '/trending/movie/day', '/movie/now_playing']
-                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`; 
+                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`
                 let response = await fetch(url)
                 let data = await response.json()
                 let movie = data.results[Math.floor(Math.random() * data.results.length)];
