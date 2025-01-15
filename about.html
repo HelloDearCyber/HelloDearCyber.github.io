@@ -35,6 +35,16 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -61,12 +71,12 @@
             }
         }
 
-        .slide-in {
-            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .slide-in {
+            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
         .pulse-effect {
@@ -139,6 +149,11 @@
         ::-webkit-scrollbar {
             display: none; /* Chrome, Safari, and Opera */
         }
+
+        .fade-in-section {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
     </style>
 </head>
 
@@ -179,7 +194,7 @@
         <!-- Content Sections -->
         <div class="flex-grow relative overflow-hidden">
             <!-- Welcome Content -->
-            <div id="content1" class="content-div absolute h-full w-full flex flex-col justify-center items-center inset-0 p-6 slide-in">
+            <div id="content1" class="content-div absolute h-full w-full flex flex-col justify-center items-center inset-0 p-6 fade-in-section">
                 <h1 class="text-3xl font-bold mb-4 text-center">WELCOME TO OUR <span class="text-red-600 pulse-effect inline-block">STREAMING</span> PAGE</h1>
                 <p class="text-lg text-center">
                     We're thrilled to have <span class="text-red-600">you</span> here.
@@ -191,7 +206,7 @@
             </div>
 
             <!-- Channels Content -->
-            <div id="content2" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+            <div id="content2" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 fade-in-section">
                 <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">CHANNEL</span> LIST</h1>
                 <div class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
                     <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test channel 1</button></a>
@@ -201,7 +216,7 @@
             </div>
 
             <!-- Bots Content -->
-            <div id="content3" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+            <div id="content3" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 fade-in-section">
                 <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">BOTS</span> LIST</h1>
                 <div class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
                     <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test bot 1</button></a>
@@ -211,7 +226,7 @@
             </div>
 
             <!-- Contact Content -->
-            <div id="content4" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+            <div id="content4" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 fade-in-section">
                 <h1 class="text-3xl font-bold mb-4 text-center">We can talk for your support and you can report through Telegram</h1>
                 <div class="flex overflow-y-scroll flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
                     <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test contact</button></a>
@@ -250,7 +265,7 @@
             contentDivs.forEach((div, idx) => {
                 if (idx !== 0) {
                     div.classList.add('hidden');
-                    div.classList.remove('slide-in');
+                    div.classList.remove('fade-in');
                 }
             });
 
@@ -267,10 +282,10 @@
                             div.style.animation = 'none';
                             div.offsetHeight; // Trigger reflow
                             div.style.animation = null;
-                            div.classList.add('slide-in');
+                            div.classList.add('fade-in');
                         } else {
                             div.classList.add('hidden');
-                            div.classList.remove('slide-in');
+                            div.classList.remove('fade-in');
                         }
                     });
                 });
