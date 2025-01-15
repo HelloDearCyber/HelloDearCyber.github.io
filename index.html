@@ -13,23 +13,30 @@
     <meta property="og:url" content="https://hellodearcyber.github.io/">
     <meta property="og:title" content="Movie Showcase">
     <meta property="og:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
-    <!-- Make sure the image is publicly accessible -->
+    <!-- Meta image made smaller -->
     <meta property="og:image" content="https://i.postimg.cc/Px4DPrRv/bot.png">
+    <meta property="og:image:width" content="150"> <!-- Smaller image size -->
+    <meta property="og:image:height" content="150">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hellodearcyber.github.io/">
     <meta property="twitter:title" content="Movie Showcase">
     <meta property="twitter:description" content="Discover and explore a wide range of movies with Movie Showcase. Stay updated with the latest releases, trending movies, and more.">
-    <!-- Make sure the image is publicly accessible -->
+    <!-- Meta image made smaller -->
     <meta property="twitter:image" content="https://i.postimg.cc/Px4DPrRv/bot.png">
+    <meta property="twitter:image:width" content="150"> <!-- Smaller image size -->
+    <meta property="twitter:image:height" content="150">
 
     <meta name="author" content="Your Name">
     <meta name="keywords" content="movies, movie showcase, latest movies, trending movies, movie releases">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
 
-    <!-- Changed the icon link to your new image -->
-    <link rel="icon" href="https://i.postimg.cc/Px4DPrRv/bot.png" type="image/x-icon">
+    <!-- Favicon updated to your new link -->
+    <link rel="icon" href="https://plazacentrosur.com/img/favicons/android-chrome-192x192.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="https://plazacentrosur.com/img/favicons/android-chrome-192x192.png">
+    <link rel="icon" sizes="32x32" href="https://plazacentrosur.com/img/favicons/android-chrome-192x192.png">
+    <link rel="icon" sizes="48x48" href="https://plazacentrosur.com/img/favicons/android-chrome-192x192.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,7 +194,7 @@
             try {
                 const apiKey = '6abcb6bb99fb77f33c37016a28866ed2';
                 const genres = ['/movie/popular', '/trending/movie/day', '/movie/now_playing']
-                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`
+                const url = `https://api.themoviedb.org/3${genres[Math.floor(Math.random() * genres.length)]}?api_key=${apiKey}&language=hin-US&page=${Math.floor(1 + Math.random() * 100)}`;
                 let response = await fetch(url)
                 let data = await response.json()
                 let movie = data.results[Math.floor(Math.random() * data.results.length)];
