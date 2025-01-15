@@ -18,7 +18,6 @@
     <style>
         * {
             font-family: 'Josefin Sans', sans-serif;
-
         }
 
         @keyframes slideIn {
@@ -134,103 +133,83 @@
 </head>
 
 <body class="bg-[url(https://i.postimg.cc/T2mcBGtv/pxfuel-2.jpg)] h-screen w-screen text-white">
-    <nav
-        class="bg-gradient-to-b from-black via-black/90 to-transparent w-full flex justify-between items-center h-16 md:px-20 px-8">
+    <!-- Top Navigation Bar with "Movie Showcase" and Logo -->
+    <nav class="bg-gradient-to-b from-black via-black/90 to-transparent w-full flex justify-between items-center h-24 md:px-20 px-8">
+        <!-- Logo and Movie Showcase Name -->
         <div class="flex gap-4 items-center" onclick="window.location.href('/index.html')">
-            <h1 class="md:text-xl text-base font-bold">Movie Showcase</h1>
+            <img src="https://i.postimg.cc/Px4DPrRv/bot.png" class="w-12 h-12 rounded-full" alt="Logo">
+            <h1 class="md:text-2xl text-xl font-bold">Movie Showcase</h1>
         </div>
-        <div class="flex gap-4">
-            <a href="./index.html" class="active magnet">Home</a>
-            <a href="./about.html" class="magnet">About</a>
+        <!-- Navigation Links -->
+        <div class="flex gap-8">
+            <a href="./index.html" class="active magnet text-lg">Home</a>
+            <a href="./about.html" class="magnet text-lg">About</a>
         </div>
     </nav>
+
     <div class="flex flex-col h-[calc(100vh-64px)]">
+        <!-- Main Navigation for Content -->
         <nav class="md:text-2xl text-lg p-4">
             <ul class="flex justify-center space-x-6">
                 <li>
-                    <button class="nav-button text-white hover:text-red-600 active link-underline magnet"
-                        data-target="content1">Welcome
-                    </button>
+                    <button class="nav-button text-white hover:text-red-600 active link-underline magnet" data-target="content1">Welcome</button>
                 </li>
                 <li>
-                    <button class="nav-button text-white hover:text-red-600 link-underline magnet"
-                        data-target="content2">Channels</button>
+                    <button class="nav-button text-white hover:text-red-600 link-underline magnet" data-target="content2">Channels</button>
                 </li>
                 <li>
-                    <button class="nav-button text-white hover:text-red-600 link-underline magnet"
-                        data-target="content3">Bots</button>
+                    <button class="nav-button text-white hover:text-red-600 link-underline magnet" data-target="content3">Bots</button>
                 </li>
                 <li>
-                    <button class="nav-button text-white hover:text-red-600 link-underline magnet"
-                        data-target="content4">Contact</button>
+                    <button class="nav-button text-white hover:text-red-600 link-underline magnet" data-target="content4">Contact</button>
                 </li>
             </ul>
         </nav>
 
+        <!-- Content Sections -->
         <div class="flex-grow relative overflow-hidden">
-            <div id="content1"
-                class="content-div absolute h-full w-full flex flex-col justify-center items-center inset-0 p-6 slide-in">
-                <h1 class="text-3xl font-bold mb-4 text-center">WELCOME TO OUR <span
-                        class="text-red-600 pulse-effect inline-block">STREAMING</span> PAGE</h1>
+            <!-- Welcome Content -->
+            <div id="content1" class="content-div absolute h-full w-full flex flex-col justify-center items-center inset-0 p-6 slide-in">
+                <h1 class="text-3xl font-bold mb-4 text-center">WELCOME TO OUR <span class="text-red-600 pulse-effect inline-block">STREAMING</span> PAGE</h1>
                 <p class="text-lg text-center">
                     We're thrilled to have <span class="text-red-600">you</span> here.
                     Get ready for an amazing <span class="text-red-600">experience</span>
-                    filled with <span>entertainment</span>, <span class="text-red-600">fun</span>, and <span
-                        class="text-red-600">surprises</span>.
+                    filled with <span>entertainment</span>, <span class="text-red-600">fun</span>, and <span class="text-red-600">surprises</span>.
                     Grab your snacks, sit back, and <span>enjoy</span> the show!
                 </p>
                 <img style="height:200px" class="mt-20" src="https://i.postimg.cc/59X5k8L1/personal.png" alt="">
             </div>
 
-            <div id="content2"
-                class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
-                <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">CHANNEL</span> LIST
-                </h1>
-                <div
-                    class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test channel 1</button></a>
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test channel 1</button></a>
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test channel 1</button></a>
-
-
-                </div>
-            </div>
-            <div id="content3"
-                class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
-                <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">BOTS</span> LIST
-                </h1>
-                <div
-                    class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test bot 1</button></a>
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test bot 1</button></a>
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test bot 1</button></a>
-
-
-                </div>
-            </div>
-            <div id="content4"
-                class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
-                <h1 class="text-3xl font-bold mb-4 text-center">we can tal'k for your support and you can report through
-                    telegram</h1>
-                <div
-                    class="flex overflow-y-scroll flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
-                    <a class="w-full p-4  text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out"
-                        href="https://t.me/Testtingroup"><button>Test contact</button></a>
-
-
-
+            <!-- Channels Content -->
+            <div id="content2" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+                <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">CHANNEL</span> LIST</h1>
+                <div class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test channel 1</button></a>
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test channel 2</button></a>
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test channel 3</button></a>
                 </div>
             </div>
 
+            <!-- Bots Content -->
+            <div id="content3" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+                <h1 class="text-3xl font-bold mb-4 text-center">OUR ALL <span class="text-red-600">BOTS</span> LIST</h1>
+                <div class="flex overflow-y-auto flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test bot 1</button></a>
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test bot 2</button></a>
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test bot 3</button></a>
+                </div>
+            </div>
 
+            <!-- Contact Content -->
+            <div id="content4" class="content-div absolute h-full w-full flex flex-col justify-center gap-4 items-center inset-0 p-6 slide-in">
+                <h1 class="text-3xl font-bold mb-4 text-center">We can talk for your support and you can report through Telegram</h1>
+                <div class="flex overflow-y-scroll flex-col w-full max-w-xl items-center justify-center gap-4 px-2 md:px-20">
+                    <a class="w-full p-4 text-center bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/15 transition-all duration-300 ease-in-out" href="https://t.me/Testtingroup"><button>Test contact</button></a>
+                </div>
+            </div>
         </div>
 
+        <!-- Footer -->
         <footer class="flex justify-between text-center flex-col items-center px-4 py-2">
             <p>&copy; 2025 <span class="text-red-600 font-bold text-lg">Movie Showcase.</span>
             <p class="text-sm text-white/60">All rights reserved.</p>
@@ -239,8 +218,7 @@
         </footer>
     </div>
 
-
-
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
