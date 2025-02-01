@@ -146,6 +146,19 @@
             transform: scale(1.1);
         }
 
+        /* Fix the Navbar to Top */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure navbar is always on top */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Navbar background transition on scroll */
+        nav.scroll-active {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent to black */
+        }
+
         /* Hide scrollbars */
         html, body {
             overflow: hidden;
@@ -170,8 +183,7 @@
 
 <body class="bg-[url(https://i.postimg.cc/T2mcBGtv/pxfuel-2.jpg)] h-screen w-screen text-white">
     <!-- Top Navigation Bar with "Movie Showcase" and Logo -->
-<nav
-        class="bg-gradient-to-b from-black via-black/90 to-transparent w-full flex justify-between items-center py-8 px-4 md:px-20">
+    <nav class="bg-gradient-to-b from-black via-black/90 to-transparent w-full flex justify-between items-center py-8 px-4 md:px-20">
         <div class="flex gap-4 items-center">
             <!-- Updated Logo Section -->
             <img src="https://i.postimg.cc/Px4DPrRv/bot.png" class="w-10 h-10 rounded-full" alt="Logo">
@@ -301,6 +313,16 @@
                     });
                 });
             });
+
+            // Add scroll effect for navbar
+            window.onscroll = function () {
+                const navbar = document.querySelector('nav');
+                if (window.scrollY > 10) {  // Change background when scrolled
+                    navbar.classList.add('scroll-active');
+                } else {
+                    navbar.classList.remove('scroll-active');
+                }
+            };
         });
     </script>
 </body>
