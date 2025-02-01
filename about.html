@@ -159,24 +159,27 @@
             background-color: rgba(0, 0, 0, 0.8); /* Transparent to black */
         }
 
-        /* Hide scrollbars */
+        /* Remove overflow hidden and adjust scroll behavior */
         html, body {
-            overflow: hidden;
             height: 100%;
+            overflow: visible; /* Allow normal scrolling behavior */
         }
 
-        body {
-            overflow-y: scroll;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        ::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, and Opera */
+        /* Content divs should be able to scroll vertically */
+        .content-div {
+            overflow-y: auto; /* Allows vertical scrolling */
         }
 
         .fade-in-section {
             opacity: 0;
             animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Content area styles */
+        .flex-grow {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 64px); /* Adjust height calculation */
         }
     </style>
 </head>
