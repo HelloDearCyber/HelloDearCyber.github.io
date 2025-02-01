@@ -181,10 +181,21 @@
             flex-direction: column;
             height: calc(100vh - 64px); /* Adjust height calculation */
         }
+
+        /* Fullscreen background image */
+        body {
+            background-image: url(https://i.postimg.cc/T2mcBGtv/pxfuel-2.jpg);
+            background-size: cover; /* Ensures the image covers the full screen */
+            background-position: center; /* Centers the image */
+            background-attachment: fixed; /* Optional: Makes the background image stay fixed when scrolling */
+            height: 100%;
+            width: 100%;
+            margin: 0; /* Ensures no margin around the body */
+        }
     </style>
 </head>
 
-<body class="bg-[url(https://i.postimg.cc/T2mcBGtv/pxfuel-2.jpg)] h-screen w-screen text-white">
+<body class="text-white">
     <!-- Top Navigation Bar with "Movie Showcase" and Logo -->
     <nav class="bg-gradient-to-b from-black via-black/90 to-transparent w-full flex justify-between items-center py-8 px-4 md:px-20">
         <div class="flex gap-4 items-center">
