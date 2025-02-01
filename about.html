@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Showcase</title> <!-- Updated title -->
+    <title>Movie Showcase</title>
 
     <!-- Favicon Links -->
     <link rel="icon" href="https://plazacentrosur.com/img/favicons/favicon.ico" type="image/x-icon" />
@@ -164,6 +164,7 @@
             height: 100%;
             overflow-x: hidden; /* Hide horizontal scroll */
             overflow-y: auto;   /* Allow vertical scroll */
+            scroll-behavior: smooth; /* Smooth scroll */
         }
 
         /* Content divs should be able to scroll vertically */
@@ -199,8 +200,8 @@
             <h1 class="md:text-xl text-base font-bold">Movie Showcase</h1>
         </div>
         <div class="flex gap-4">
-            <a href="index.html" class="active magnet"><strong>Home</strong></a>
-            <a href="about.html" class="magnet">About</a>
+            <a href="index.html" class="active magnet" id="homeLink"><strong>Home</strong></a>
+            <a href="about.html" class="magnet" id="aboutLink">About</a>
         </div>
     </nav>
 
@@ -293,6 +294,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const navButtons = document.querySelectorAll('.nav-button');
             const contentDivs = document.querySelectorAll('.content-div');
+            const links = document.querySelectorAll('nav a'); // Select all nav links
 
             contentDivs.forEach((div, idx) => {
                 if (idx !== 0) {
@@ -320,6 +322,14 @@
                             div.classList.remove('fade-in');
                         }
                     });
+                });
+            });
+
+            // Add click event to highlight active links
+            links.forEach(link => {
+                link.addEventListener('click', function () {
+                    links.forEach(l => l.classList.remove('active')); // Remove active from all
+                    this.classList.add('active'); // Add active to clicked link
                 });
             });
 
