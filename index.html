@@ -48,33 +48,25 @@
             gap: 0.25rem;
         }
 
-        .star-icon {
-            height: 1rem;
-            width: 1rem;
-            color: #FBBF24; /* Yellow color for stars */
-        }
-
-        .rating-label {
-            color: #D1D5DB; /* Light gray for Rating label */
+        .rating-label, 
+        .overview-label,
+        #movie-category, 
+        #movie-genre, 
+        #movie-release-date {
+            font-weight: bold; /* Make text bold */
+            color: #D1D5DB; /* Light gray color */
         }
 
         #movie-rating {
             font-size: 1rem;
             line-height: 1rem;
-            color: #D1D5DB; /* Light gray for Rating text */
-        }
-
-        .overview-label {
-            font-weight: bold;
-            color: #D1D5DB; /* Light gray for Overview label */
+            color: #FBBF24; /* Gold color for Rating text */
+            font-weight: bold; /* Make rating text bold */
         }
 
         #movie-overview-text {
             color: #D1D5DB; /* Light gray for Overview text */
-        }
-
-        #movie-category, #movie-genre, #movie-release-date {
-            color: #D1D5DB; /* Light gray color for other details */
+            font-weight: normal; /* Keep normal weight for the overview text */
         }
     </style>
 </head>
@@ -118,9 +110,6 @@
 
                     <div class="flex flex-wrap gap-4 text-sm md:text-base">
                         <div class="rating">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="star-icon mr-1" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 15.27L16.18 19l-1.64-7.03L19 8.24l-7.19-.61L10 1 8.19 7.63 1 8.24l4.46 3.73L3.82 19z"/>
-                            </svg>
                             <span class="rating-label">Rating:</span>
                             <span id="movie-rating">None</span>
                         </div>
