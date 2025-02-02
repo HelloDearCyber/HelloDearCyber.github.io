@@ -165,12 +165,14 @@
             overflow-x: hidden; /* Hide horizontal scroll */
             overflow-y: auto;   /* Allow vertical scroll */
             scroll-behavior: smooth; /* Smooth scroll */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
         }
 
         /* Content divs should be able to scroll vertically */
         .content-div {
             overflow-y: auto; /* Allows vertical scrolling */
             width: 100%; /* Prevent horizontal overflow */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
         }
 
         .fade-in-section {
@@ -235,7 +237,7 @@
                     filled with <span>entertainment</span>, <span class="text-red-600">fun</span>, and <span class="text-red-600">surprises</span>.
                     Grab your snacks, sit back, and <span>enjoy</span> the show!
                 </p>
-                <img style="height:200px" class="mt-20" src="https://i.postimg.cc/59X5k8L1/personal.png" alt="">
+                <img style="height:200px" class="mt-20" src="https://i.postimg.cc/59X5k8L1/personal.png" alt=""/>
             </div>
 
             <!-- Channels Content -->
