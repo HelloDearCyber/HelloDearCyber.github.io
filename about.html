@@ -151,11 +151,6 @@
             transition: background-color 0.3s ease;
         }
 
-            z-index: 1000;
-            /* Ensure navbar is always on top */
-            transition: background-color 0.3s ease;
-        }
-
 /* Navbar background transition on scroll */
         nav.scroll-active {
             background-color: rgba(0, 0, 0, 0.8);
@@ -214,7 +209,7 @@
         </div>
     </nav>
 
-    <div class="flex flex-col z-30 mt-24">
+    <div class="flex flex-col z-30 mt-24 min-h-[calc(100vh-100px)]">
         <!-- Main Navigation for Content -->
         <nav class="md:text-2xl text-lg p-4 z">
             <ul class="flex justify-center space-x-6">
@@ -238,7 +233,7 @@
         </nav>
 
         <!-- Content Sections -->
-        <div class="h-full">
+        <div class="flex-1">
             <!-- Welcome Content -->
             <div id="content1"
                 class="content-div  h-full w-full flex flex-col justify-center items-center inset-0 p-6 fade-in-section">
