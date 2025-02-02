@@ -169,7 +169,7 @@
 
         /* Content divs should be able to scroll vertically */
         .content-div {
-            overflow-y: scroll; /* Try scroll instead of auto */
+            overflow-y: auto; /* Allows vertical scrolling */
             width: 100%; /* Prevent horizontal overflow */
         }
 
@@ -187,13 +187,6 @@
 
         img {
             max-width: 100%; /* Prevent images from overflowing */
-        }
-
-        /* Disable smooth scroll on mobile */
-        @media (max-width: 768px) {
-            html, body {
-                scroll-behavior: auto; /* Disable smooth scrolling on mobile */
-            }
         }
     </style>
 </head>
